@@ -9,4 +9,22 @@
 
 <style>
 
+	form {
+		font-family: 'Open Sans', sans-serif;
+		font-size: 1.5vw;
+		margin-top: 2vw;
+	}
+
+	input {
+		width: 30vw;
+	}
+
+	button {
+		background-color: #FCC1CB;
+		border: none;
+		font-weight: bold;
+		color: white;
+		width: 8vw;
+	}
+
 </style>
