@@ -1,25 +1,33 @@
 <script>
-
+	import Form from './Form.svelte';
+	import Title from './Title.svelte';
 </script>
 
 <main>
-	<h1>SYNONYMS</h1>
-	<h2>& sugar</h2>
-	<img src='./images/background-image.png' />
-	<p></p>
+	<div>
+		<Title />
+		<Form />
+	</div>
+	<img alt='donuts' src='./images/background-image.png' />
 </main>
 
 <style>
+
 	main {
 		background-color: #545454;
+		margin: -2vw;
+		padding: 4vw;
 	}
 
-	h1 {
-
+	div {
+		display: flex;
+		justify-content: space-between;
 	}
 
-	h2 {
-
+	img {
+		width: 35%;
+		margin: -4vw;
+		margin-top: 8%;
 	}
 
 </style>
