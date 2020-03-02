@@ -21,12 +21,13 @@
 
 	div {
 		display: flex;
+		justify-content: space-between;
 	}
 
 	img {
 		width: 35%;
 		margin: -4vw;
-		margin-top: 15%;
+		margin-top: 8%;
 	}
 
 </style>
