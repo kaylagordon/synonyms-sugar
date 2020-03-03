@@ -1,24 +1,28 @@
 <script>
 
 	import { fetchSynonyms } from '../apiCalls.js';
-	import { word } from '../stores.js';
+	import { word, synonyms } from '../stores.js';
 
 	let word_value;
-	let synonyms = [];
+	let synonyms_value;
 
-	const unsubscribe = word.subscribe(value => {
+	const getWords = word.subscribe(value => {
 		word_value = value;
+	});
+
+	const getSynonyms = synonyms.subscribe(value => {
+		synonyms_value = value;
 	});
 
 	const handleClick = async (e) => {
 		e.preventDefault();
-		synonyms = await fetchSynonyms(word_value);
-		console.log(synonyms);
+		let synonymsArr = await fetchSynonyms(word_value);
+		synonyms.set(synonymsArr);
+		console.log(synonyms_value);
 	};
 
 	const handleTextChange = (e) => {
 		word.set(e.target.value)
-		console.log(word_value);
 	}
 
 </script>
