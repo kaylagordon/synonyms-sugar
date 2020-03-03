@@ -14,8 +14,12 @@
 	const handleClick = async (e) => {
 		if (e.target.id === 'button') {
 			word.set(e.target.value);
-			let synonymsArr = await fetchSynonyms(e.target.value);
-			synonyms.set(synonymsArr);
+			fetchSynonyms(e.target.value)
+			.then(data => synonyms.set(data[0].meta.syns[0]))
+			.catch(err => {
+				error.set(`There are no synonyms for ${e.target.value}. Please try another word.`);
+				console.log($error);
+			});
 		}
 	}
 
