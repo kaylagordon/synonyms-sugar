@@ -9,10 +9,11 @@
 	bind:word_value = $word;
 	bind:synonyms_value = $synonyms;
 
-	const handleClick = (e) => {
+	const handleClick = async (e) => {
 		if (e.target.id === 'button') {
-
-			console.log(e.target.value);
+			word.set(e.target.value);
+			let synonymsArr = await fetchSynonyms(e.target.value);
+			synonyms.set(synonymsArr);
 		}
 	}
 
