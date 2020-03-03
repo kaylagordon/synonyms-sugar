@@ -1,10 +1,20 @@
 <script>
 
+	import { fetchSynonyms } from '../apiCalls.js';
+
+	let synonyms = [];
+
+	const handleClick = async (e) => {
+		e.preventDefault();
+		synonyms = await fetchSynonyms('chicken');
+		console.log(synonyms);
+	}
+
 </script>
 
 <form>
 	<input type='text' placeholder='Enter a word here...'/>
-	<button className='submit-word-button'>Go!</button>
+	<button className='submit-word-button' on:click={handleClick}>Go!</button>
 </form>
 
 <style>
