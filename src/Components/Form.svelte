@@ -52,4 +52,9 @@
 		width: 8vw;
 	}
 
+	button:hover {
+		background-color: white;
+		color: #FCC1CB;
+	}
+
 </style>
