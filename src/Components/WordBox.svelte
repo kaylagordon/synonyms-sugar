@@ -9,13 +9,25 @@
 	bind:word_value = $word;
 	bind:synonyms_value = $synonyms;
 
+	const handleClick = (e) => {
+		if (e.target.id === 'button') {
+
+			console.log(e.target.value);
+		}
+	}
+
 
 </script>
 
 <section className='word-box'>
 	<h1>{$word}</h1>
-	<div>
-		{@html $synonyms.map(synonym => `<button value=${synonym}>${synonym}</button>`)}
+	<div on:click={handleClick}>
+		{@html $synonyms.map(synonym =>
+			`<button
+				id='button'
+				value=${synonym}
+			>${synonym}</button>`
+		)}
 	</div>
 </section>
 
