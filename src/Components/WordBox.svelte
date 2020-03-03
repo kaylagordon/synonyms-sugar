@@ -21,5 +21,18 @@
 
 <style>
 
+	h1 {
+		color: #B3E9EA;
+		font-size: 8vw;
+		margin-left: 50vw;
+		margin-top: 0;
+	}
+
+	div {
+		text-align: center;
+		margin-left: 38vw;
+		width: 40vw;
+		margin-top: -5vw;
+	}
 
 </style>

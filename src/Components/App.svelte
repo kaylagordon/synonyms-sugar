@@ -31,10 +31,4 @@
 		justify-content: space-between;
 	}
 
-	img {
-		width: 35%;
-		margin: -4vw;
-		margin-top: 8%;
-	}
-
 </style>
