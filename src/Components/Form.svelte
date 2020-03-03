@@ -1,19 +1,35 @@
 <script>
 
 	import { fetchSynonyms } from '../apiCalls.js';
+	import { word, synonyms } from '../stores.js';
 
-	let synonyms = [];
+	let word_value;
+	let synonyms_value;
+
+	const getWords = word.subscribe(value => {
+		word_value = value;
+	});
+
+	const getSynonyms = synonyms.subscribe(value => {
+		synonyms_value = value;
+	});
 
 	const handleClick = async (e) => {
+		console.log('hello there');
 		e.preventDefault();
-		synonyms = await fetchSynonyms('chicken');
-		console.log(synonyms);
+		let synonymsArr = await fetchSynonyms(word_value);
+		synonyms.set(synonymsArr);
+	};
+
+	const handleTextChange = (e) => {
+		word.set(e.target.value)
+		console.log(word_value);
 	}
 
 </script>
 
 <form>
-	<input type='text' placeholder='Enter a word here...'/>
+	<input type='text' placeholder='Enter a word here...' on:keyup={handleTextChange}/>
 	<button className='submit-word-button' on:click={handleClick}>Go!</button>
 </form>
 
