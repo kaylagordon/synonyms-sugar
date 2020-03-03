@@ -1,13 +1,15 @@
 <script>
 
 	import { fetchSynonyms } from '../apiCalls.js';
-	import { word, synonyms } from '../stores.js';
+	import { word, synonyms, error } from '../stores.js';
 
 	let word_value;
 	let synonyms_value;
+	let error_value;
 
 	bind:word_value = $word;
 	bind:synonyms_value = $synonyms;
+	bind:error_value = $error;
 
 	const handleClick = async (e) => {
 		if (e.target.id === 'button') {
@@ -16,7 +18,6 @@
 			synonyms.set(synonymsArr);
 		}
 	}
-
 
 </script>
 
@@ -29,6 +30,7 @@
 				value=${synonym}
 			>${synonym}</button>`
 		)}
+		{@html $error && `<p style="color:white;" >${$error}</p>` }
 	</div>
 </section>
 
