@@ -1,10 +1,15 @@
 <script>
+
 	import { fetchSynonyms } from '../apiCalls.js';
 
-	const handleClick = (e) => {
+	let synonyms = [];
+
+	const handleClick = async (e) => {
 		e.preventDefault();
-		fetchSynonyms('chicken');
+		synonyms = await fetchSynonyms('chicken');
+		console.log(synonyms);
 	}
+
 </script>
 
 <form>
