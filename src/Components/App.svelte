@@ -1,6 +1,7 @@
 <script>
 	import Form from './Form.svelte';
 	import Title from './Title.svelte';
+	import WordBox from './WordBox.svelte';
 </script>
 
 <main>
@@ -8,6 +9,7 @@
 		<Title />
 		<Form />
 	</div>
+	<WordBox />
 	<img alt='donuts' src='./images/background-image.png' />
 </main>
 

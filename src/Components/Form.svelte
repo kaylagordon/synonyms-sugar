@@ -15,16 +15,16 @@
 	});
 
 	const handleClick = async (e) => {
-		console.log('hello there');
 		e.preventDefault();
 		let synonymsArr = await fetchSynonyms(word_value);
 		synonyms.set(synonymsArr);
+		console.log(synonyms_value);
 	};
 
 	const handleTextChange = (e) => {
-		word.set(e.target.value)
-		console.log(word_value);
-	}
+		word.set(e.target.value);
+		synonyms.set([]);
+	};
 
 </script>
 
