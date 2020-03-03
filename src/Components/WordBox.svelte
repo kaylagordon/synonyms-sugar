@@ -6,20 +6,17 @@
 	let word_value;
 	let synonyms_value;
 
-	const getWords = word.subscribe(value => {
-		word_value = value;
-	});
+	bind:word_value = $word;
+	bind:synonyms_value = $synonyms;
 
-	const getSynonyms = synonyms.subscribe(value => {
-		synonyms_value = value;
-	});
 
 </script>
 
 <section className='word-box'>
-	<h1>{word_value}</h1>
-	<p>{synonyms_value}</p>
-
+	<h1>{$word}</h1>
+	<div>
+		{@html $synonyms.map(synonym => `<button value=${synonym}>${synonym}</button>`)}
+	</div>
 </section>
 
 <style>

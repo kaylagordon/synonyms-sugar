@@ -18,7 +18,6 @@
 		e.preventDefault();
 		let synonymsArr = await fetchSynonyms(word_value);
 		synonyms.set(synonymsArr);
-		console.log(synonyms_value);
 	};
 
 	const handleTextChange = (e) => {
