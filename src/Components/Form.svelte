@@ -1,7 +1,7 @@
 <script>
 
 	import { fetchSynonyms } from '../apiCalls.js';
-	import { word, synonyms } from '../stores.js';
+	import { word, synonyms, error } from '../stores.js';
 
 	let word_value;
 	let synonyms_value;
@@ -14,15 +14,20 @@
 		synonyms_value = value;
 	});
 
-	const handleClick = async (e) => {
+	const handleClick = (e) => {
 		e.preventDefault();
-		let synonymsArr = await fetchSynonyms(word_value);
-		synonyms.set(synonymsArr);
+		fetchSynonyms(word_value)
+		.then(data => synonyms.set(data[0].meta.syns[0]))
+		.catch(err => {
+			error.set(`There are no synonyms for ${word_value}. Please try another word.`);
+			console.log($error);
+		});
 	};
 
 	const handleTextChange = (e) => {
 		word.set(e.target.value);
 		synonyms.set([]);
+		error.set('');
 	};
 
 </script>
@@ -50,6 +55,11 @@
 		font-weight: bold;
 		color: white;
 		width: 8vw;
+	}
+
+	button:hover {
+		background-color: white;
+		color: #FCC1CB;
 	}
 
 </style>
