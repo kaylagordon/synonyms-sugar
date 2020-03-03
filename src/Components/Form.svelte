@@ -1,6 +1,7 @@
 <script>
 
 	import { fetchSynonyms } from '../apiCalls.js';
+	import { word, synonyms } from '../stores.js';
 
 	let synonyms = [];
 
