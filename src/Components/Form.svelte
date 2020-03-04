@@ -20,7 +20,6 @@
 		.then(data => synonyms.set(data[0].meta.syns[0]))
 		.catch(err => {
 			error.set(`There are no synonyms for ${word_value}. Please try another word.`);
-			console.log($error);
 		});
 	};
 
@@ -60,6 +59,8 @@
 	button:hover {
 		background-color: white;
 		color: #FCC1CB;
+		cursor: pointer;
+		transform: scale(1.05);
 	}
 
 </style>

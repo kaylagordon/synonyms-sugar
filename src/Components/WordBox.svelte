@@ -18,18 +18,39 @@
 			.then(data => synonyms.set(data[0].meta.syns[0]))
 			.catch(err => {
 				error.set(`There are no synonyms for ${e.target.value}. Please try another word.`);
-				console.log($error);
 			});
-		}
-	}
+		};
+	};
+
+	const showHover = (e) => {
+		if (e.target.id === 'button') {
+			e.target.style.background = '#FCC1CB';
+			e.target.style.color = 'white';
+		};
+		let allButtons = document.querySelectorAll('#button');
+		allButtons.forEach(button => {
+			if (button.id !== e.target.id) {
+				button.style.background = 'white';
+				button.style.color = '#545454'
+			}
+		})
+	};
 
 </script>
 
 <section className='word-box'>
 	<h1>{$word}</h1>
-	<div on:click={handleClick}>
+	<div on:click={handleClick} on:mouseover={showHover}>
 		{@html $synonyms.map(synonym =>
 			`<button
+				style="
+				font-size: 1.2vw;
+				background-color: white;
+				border: none;
+				font-weight: bold;
+				color: #545454;
+				margin-right: .5vw;
+				cursor: pointer;"
 				id='button'
 				value=${synonym}
 			>${synonym}</button>`
@@ -54,6 +75,8 @@
 		width: 40vw;
 		margin: auto;
 		margin-top: -5vw;
+		color: #545454;
 	}
+
 
 </style>
